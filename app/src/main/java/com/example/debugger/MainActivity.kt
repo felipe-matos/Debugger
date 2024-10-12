@@ -1,16 +1,27 @@
 package com.example.debugger
 
 import android.os.Bundle
+import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 
 class MainActivity : AppCompatActivity() {
+
+    private lateinit var textClique: TextView
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        val listaUsuarios = listOf("felipe", "android", "kotlin", "mobile")
+        textClique = findViewById(R.id.textClique)
 
-        exibirListaItens(listaUsuarios)
+        textClique.setOnClickListener {
+
+            val listaUsuarios = listOf("felipe", "android", "kotlin", "mobile")
+
+            exibirListaItens(listaUsuarios)
+
+        }
+
 
     }
 
@@ -26,8 +37,15 @@ class MainActivity : AppCompatActivity() {
                 println("primeiro usuário")
                 exibirPrimeiroUsuario = false
             }
-            print(usuario)
+            exibirItem(usuario)
             contadorItens++
         }
+    }
+
+    private fun exibirItem(usuario: String) {
+
+        println("usuario")
+        println("-------")
+
     }
 }
